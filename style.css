@@ -1,5 +1,5 @@
 /* Basic Style */
-body {
+.page {
   background-color: #f8f8f8;
   color: #333;
   font-family: lato, sans-serif;
@@ -10,10 +10,10 @@ body {
   display: block;
   text-align: right;
 }
-.header img {
+.header__image {
   width: 100%;
 }
-.header .header__link {
+.header__link {
   font-family: fantasy, cursive;
 }
 
@@ -30,25 +30,29 @@ body {
 .add-section__content {
   display: flex;
 }
-.task,
-add-section__content-input {
+.section__item-label,
+.section__item-input {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
 }
-ul {
+.section__list {
   margin: 0;
   padding: 0px;
 }
-li,
-h3 {
+.section__item,
+.section__title,
+.add-section__title {
   list-style: none;
 }
-input,
-button{
+.section__item-input,
+.section__item-checkbox,
+.add-section__content-button,
+.section__item-button {
   outline: none;
 }
-button {
+.add-section__content-button,
+.section__item-button {
   background: none;
   border: 0px;
   color: #888;
@@ -57,12 +61,13 @@ button {
   font-family: lato, sans-serif;
   cursor: pointer;
 }
-button:hover {
+.add-section__content-button:hover,
+.section__item-button:hover {
   color: #3a3a3a;
 }
 /* Heading */
-h3,
-add-section__title {
+.add-section__title,
+.section__title {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -71,7 +76,8 @@ add-section__title {
   margin: 0 0 20px;
   text-transform: uppercase;
 }
-input[type="text"] {
+.add-section__content-input,
+.section__item-input {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -83,21 +89,24 @@ input[type="text"] {
   font-family: lato, sans-serif;
   color: #888;
 }
-input[type="text"]:focus {
+.add-section__content-input:focus,
+.section__item-input:focus {
   color: #333;
 }
 
 /* New Task */
-add-section__title {
+.add-section__title {
   display: block;
   margin: 0 0 20px;
 }
-input#new-task {
+.add-section__content-input {
+  display: inline-block;
   width: 318px;
+  flex-grow: 1;
 }
 
 /* Task list */
-li {
+.section__item {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -106,47 +115,48 @@ li {
   justify-content: space-between;
   align-items: center;
 }
-li > * {
+.section__item > * {
   vertical-align: middle;
 }
 
-li > input[type="checkbox"] {
+.section__item > .section__item-checkbox {
   margin: 0 10px;
 }
-li > label {
+.section__item > .section__item-label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
-li >    input[type="text"] {
+.section__item > .add-section__content-input,
+.section__item > .section__item-input {
   width: 226px;
 }
-button.delete img {
+.delete-button .section__item-button-image {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
-button.delete img:hover {
+.delete-button .section__item-button-image:hover {
   transform: rotateZ(0);
 }
 
 /* Completed */
-ul#completed-tasks label {
+#completed-tasks .section__item-label {
   text-decoration: line-through;
   color: #888;
 }
 
-/* Edit Task */
-ul li input[type=text] {
+/* Edit Task */ 
+.section__list .section__item .section__item-input {
   display: none;
 }
 
-ul li.editmode input[type=text] {
+.section__list .section__item_edit .section__item-input {
   display: inline-block;
   width: 224px;
 }
 
-ul li.editmode label {
+.section__list .section__item_edit .section__item-label {
   display: none;
 }
