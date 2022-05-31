@@ -20,7 +20,7 @@ var createNewTaskElement=function(taskString){
     var listItem=document.createElement("li");
 
     //input (checkbox)
-    var checkBox=document.createElement("input");//checkbx
+    var checkBox=document.createElement("input");//checkbox
     //label
     var label=document.createElement("label");//label
     //input (text)
@@ -42,12 +42,12 @@ var createNewTaskElement=function(taskString){
     checkBox.className="section__item-checkbox";
 
     editInput.type="text";
-    editInput.className="input section__item-input";
+    editInput.className="section__item-input";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit section__item-button";
+    editButton.className="section__item-button edit-button";
 
-    deleteButton.className="delete-button section__item-button";
+    deleteButton.className="section__item-button delete-button";
     deleteButtonImg.src='./remove.svg';
     deleteButtonImg.className="section__item-button-image";
     deleteButton.appendChild(deleteButtonImg);
@@ -89,7 +89,7 @@ var editTask=function(){
 
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".edit");
+    var editBtn=listItem.querySelector(".edit-button");
     var containsClass=listItem.classList.contains("section__item_edit");
     //If class of the parent is .editmode
     if(containsClass){
@@ -161,7 +161,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
     var checkBox=taskListItem.querySelector("input[type=checkbox]");
-    var editButton=taskListItem.querySelector("button.edit");
+    var editButton=taskListItem.querySelector("button.edit-button");
     var deleteButton=taskListItem.querySelector("button.delete-button");
 
 
@@ -177,7 +177,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 //for each list item
 for (var i=0; i<incompleteTaskHolder.children.length;i++){
 
-    //bind events to list items chldren(tasksCompleted)
+    //bind events to list items children(tasksCompleted)
     bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
 }
 
@@ -186,7 +186,7 @@ for (var i=0; i<incompleteTaskHolder.children.length;i++){
 
 //cycle over completedTasksHolder ul list items
 for (var i=0; i<completedTasksHolder.children.length;i++){
-    //bind events to list items chldren(tasksIncompleted)
+    //bind events to list items children(tasksIncompleted)
     bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
 
